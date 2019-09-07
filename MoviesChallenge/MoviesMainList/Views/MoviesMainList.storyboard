@@ -29,20 +29,29 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="652"/>
                                 <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-J6-O22" customClass="NoResultView" customModule="MoviesChallenge" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="84" width="414" height="652"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bPS-J6-O22" firstAttribute="leading" secondItem="FQp-fj-KFC" secondAttribute="leading" id="5zp-xJ-Tr0"/>
                             <constraint firstItem="dsB-Hc-cHq" firstAttribute="bottom" secondItem="FQp-fj-KFC" secondAttribute="bottom" id="HwT-a0-lEh"/>
+                            <constraint firstItem="bPS-J6-O22" firstAttribute="bottom" secondItem="FQp-fj-KFC" secondAttribute="bottom" id="OdM-bN-fpR"/>
                             <constraint firstItem="nCY-yn-DXa" firstAttribute="top" secondItem="3tp-Ji-luZ" secondAttribute="top" constant="16" id="Ptw-il-Nf2"/>
                             <constraint firstItem="nCY-yn-DXa" firstAttribute="leading" secondItem="dsB-Hc-cHq" secondAttribute="leading" constant="8" id="chA-c8-AU4"/>
                             <constraint firstItem="dsB-Hc-cHq" firstAttribute="trailing" secondItem="FQp-fj-KFC" secondAttribute="trailing" id="nlB-LN-BFo"/>
+                            <constraint firstItem="bPS-J6-O22" firstAttribute="top" secondItem="FQp-fj-KFC" secondAttribute="top" id="qGT-et-zXw"/>
                             <constraint firstItem="FQp-fj-KFC" firstAttribute="top" secondItem="nCY-yn-DXa" secondAttribute="bottom" constant="8" id="s2M-YS-v0T"/>
                             <constraint firstItem="FQp-fj-KFC" firstAttribute="leading" secondItem="dsB-Hc-cHq" secondAttribute="leading" id="too-hc-6oZ"/>
+                            <constraint firstItem="bPS-J6-O22" firstAttribute="trailing" secondItem="FQp-fj-KFC" secondAttribute="trailing" id="x45-iK-7UE"/>
                             <constraint firstItem="dsB-Hc-cHq" firstAttribute="trailing" secondItem="nCY-yn-DXa" secondAttribute="trailing" constant="8" id="xqO-Dj-10v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dsB-Hc-cHq"/>
                     </view>
                     <connections>
+                        <outlet property="noResultView" destination="bPS-J6-O22" id="VVF-Ud-B4O"/>
                         <outlet property="searchView" destination="nCY-yn-DXa" id="WeE-RF-zHM"/>
                         <outlet property="tableview" destination="FQp-fj-KFC" id="J8F-aB-y9G"/>
                     </connections>

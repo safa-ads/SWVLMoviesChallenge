@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="CircularStdBold.otf">
+            <string>CircularStd-Bold</string>
+        </array>
+        <array key="CircularStdBook.otf">
+            <string>CircularStd-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorView" customModule="MoviesChallenge" customModuleProvider="target">
+            <connections>
+                <outlet property="contentview" destination="awY-nH-K22" id="MkB-hU-Wny"/>
+                <outlet property="errorMessageLabel" destination="uhq-XR-VTv" id="sPo-gU-Mcf"/>
+                <outlet property="okButton" destination="EGf-Gd-CMP" id="hov-lD-7gx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="awY-nH-K22">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4L-c9-f8R" customClass="RoundedView" customModule="MoviesChallenge" customModuleProvider="target">
+                    <rect key="frame" x="16" y="306.33333333333331" width="382" height="123.66666666666669"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExclamationMarkNoRounds" translatesAutoresizingMaskIntoConstraints="NO" id="D5l-79-1iZ">
+                            <rect key="frame" x="171" y="8" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="LUq-pU-yAW"/>
+                                <constraint firstAttribute="width" constant="40" id="bml-2e-u7E"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhq-XR-VTv">
+                            <rect key="frame" x="16" y="55.999999999999993" width="350" height="21.666666666666664"/>
+                            <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGf-Gd-CMP">
+                            <rect key="frame" x="161" y="85.666666666666686" width="60" height="30"/>
+                            <color key="backgroundColor" red="0.96862745098039216" green="0.58039215686274503" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="8N3-Vn-CKh"/>
+                                <constraint firstAttribute="height" constant="30" id="Asn-s2-K8z"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="CircularStd-Bold" family="Circular Std" pointSize="17"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="okButtonClicked:" destination="-1" eventType="touchUpInside" id="6cD-MZ-7iK"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="EGf-Gd-CMP" secondAttribute="bottom" constant="8" id="0E9-fL-VhE"/>
+                        <constraint firstItem="D5l-79-1iZ" firstAttribute="centerX" secondItem="D4L-c9-f8R" secondAttribute="centerX" id="7Js-6w-U92"/>
+                        <constraint firstItem="uhq-XR-VTv" firstAttribute="top" secondItem="D5l-79-1iZ" secondAttribute="bottom" constant="8" id="QcU-Nb-iMo"/>
+                        <constraint firstItem="EGf-Gd-CMP" firstAttribute="top" secondItem="uhq-XR-VTv" secondAttribute="bottom" constant="8" id="e6G-Ap-zad"/>
+                        <constraint firstItem="EGf-Gd-CMP" firstAttribute="centerX" secondItem="D4L-c9-f8R" secondAttribute="centerX" id="isM-eg-NnF"/>
+                        <constraint firstItem="D5l-79-1iZ" firstAttribute="top" secondItem="D4L-c9-f8R" secondAttribute="top" constant="8" id="ree-D4-cu0"/>
+                        <constraint firstAttribute="trailing" secondItem="uhq-XR-VTv" secondAttribute="trailing" constant="16" id="uyG-sW-wAR"/>
+                        <constraint firstItem="uhq-XR-VTv" firstAttribute="leading" secondItem="D4L-c9-f8R" secondAttribute="leading" constant="16" id="yRf-aK-YiQ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                            <real key="value" value="12.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="D4L-c9-f8R" firstAttribute="leading" secondItem="awY-nH-K22" secondAttribute="leading" constant="16" id="29O-yd-Aan"/>
+                <constraint firstItem="D4L-c9-f8R" firstAttribute="centerY" secondItem="awY-nH-K22" secondAttribute="centerY" id="4zv-ma-WVO"/>
+                <constraint firstItem="D4L-c9-f8R" firstAttribute="centerX" secondItem="awY-nH-K22" secondAttribute="centerX" id="BRW-9n-3UI"/>
+                <constraint firstAttribute="trailing" secondItem="D4L-c9-f8R" secondAttribute="trailing" constant="16" id="HNU-gp-Abi"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Ch1-vU-7Xv"/>
+            <point key="canvasLocation" x="125" y="124"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ExclamationMarkNoRounds" width="29" height="27"/>
+    </resources>
+</document>
