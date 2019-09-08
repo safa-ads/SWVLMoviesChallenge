@@ -16,11 +16,10 @@ class MoviesMainListViewController: UIViewController {
     
     let moviesMainListTableviewCellNibFileName = "MoviesMainListTableViewCell"
     let viewModel:MoviesMainListViewModel = MoviesMainListViewModel()
-    let topCount = 5
     
     var movieList:MovieList?
-    var searchedMovieList = MovieList(movies: [])
     var moviesDic: [Int : [Movies]] = [:]
+    var  sortedMoviesDicKeys:[Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +48,7 @@ extension MoviesMainListViewController : UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(!moviesDic.isEmpty) {
-            let arr = Array(moviesDic.keys)
-            if let count = moviesDic[arr[section]]?.count {
+            if let count = moviesDic[sortedMoviesDicKeys[section]]?.count {
                 return count
             }
         }
@@ -66,21 +64,34 @@ extension MoviesMainListViewController : UITableViewDataSource, UITableViewDeleg
         var title = ""
         var rating = 0
         if (!moviesDic.isEmpty) {
-            let key = Array(moviesDic.keys)[indexPath.section]
-            let movies = moviesDic[key]
-            title = (movies?[indexPath.row].title)!
-            rating = (movies?[indexPath.row].rating)!
+            let movie = moviesDic[sortedMoviesDicKeys[indexPath.section]]?[indexPath.row]
+            if let movieTitle = movie?.title, let movieRating = movie?.rating {
+                title = movieTitle
+                rating = movieRating
+            }
         }
         else {
-            title = (movieList?.movies[indexPath.row].title)!
-            rating = (movieList?.movies[indexPath.row].rating)!
+            if let movieTitle = movieList?.movies[indexPath.row].title, let movieRating = movieList?.movies[indexPath.row].rating {
+                title = movieTitle
+                rating = movieRating
+            }
         }
-        
         let cell = self.tableview.dequeueReusableCell(withIdentifier:MoviesMainListTableViewCell.cellIdentifier, for: indexPath) as! MoviesMainListTableViewCell
         cell.titleLabel.text = title
-        cell.setRating(rating:rating )
+        cell.setRating(rating:rating)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "MovieDetails", bundle: nil).instantiateViewController(withIdentifier: "MovieDetails") as! MovieDetailsViewController
+        if (!moviesDic.isEmpty) {
+            vc.movie = moviesDic[sortedMoviesDicKeys[indexPath.section]]?[indexPath.row]
+        }
+        else {
+            vc.movie = movieList?.movies[indexPath.row]
+        }
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -96,7 +107,7 @@ extension MoviesMainListViewController : UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if(!moviesDic.isEmpty) {
-            let key = Array(moviesDic.keys)[section]
+            let key = sortedMoviesDicKeys[section]
             return "\(key)"
         }
         else {
@@ -106,42 +117,24 @@ extension MoviesMainListViewController : UITableViewDataSource, UITableViewDeleg
     }
     
 }
+
 extension MoviesMainListViewController : SearchDelegate {
     
     func search(text: String) {
-        if let movies = movieList?.movies {
-            searchedMovieList.movies.append(contentsOf: movies.filter{$0.title.lowercased().contains(text.lowercased())})
-        }
-        if (searchedMovieList.movies.isEmpty) {
-            noResultView.isHidden = false
+        moviesDic = viewModel.sortAndCategorizeMovies(text:text)
+        sortedMoviesDicKeys = viewModel.sortDictionaryKeys(moviesDictionary: moviesDic)
+        if(viewModel.isSearchFound()) {
+            noResultView.isHidden = true
+            tableview.reloadData()
         }
         else {
-            noResultView.isHidden = true
-            sortList()
-            categorizeByYear()
+          noResultView.isHidden = false
         }
     }
     
     func clear() {
         noResultView.isHidden = true
-        searchedMovieList.movies = []
-        moviesDic = [:]
-        tableview.reloadData()
-    }
-    
-    func sortList() {
-        searchedMovieList.movies.sortByRate()
-    }
-    
-    func categorizeByYear() {
-        for movie in searchedMovieList.movies {
-            if moviesDic[movie.year] == nil {
-                moviesDic[movie.year] = [movie]
-            }
-            else if (moviesDic[movie.year]?.count ?? 0) < topCount  {
-                moviesDic[movie.year]?.append(movie)
-            }
-        }
+        moviesDic = viewModel.clear()
         tableview.reloadData()
     }
 }

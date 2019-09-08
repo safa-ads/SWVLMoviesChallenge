@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (4.8.2)
   - Cosmos (19.0.3)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.8.2)
   - Cosmos (~> 19.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Cosmos
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
 
-PODFILE CHECKSUM: b831ece73dd5a1341a1be53db6e21e94816eff81
+PODFILE CHECKSUM: 2e8da85ba7af6277639507bcc50a131c8691273f
 
 COCOAPODS: 1.5.3

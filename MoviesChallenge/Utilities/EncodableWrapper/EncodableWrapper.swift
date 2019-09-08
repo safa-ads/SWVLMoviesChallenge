@@ -18,4 +18,11 @@ class EncodableWrapper {
         }
         return nil
     }
+    
+    func getMovieImages(data:Data) -> MovieImages? {
+        if let movieImages =  try? decoder.decode(MovieImages.self, from: data) {
+            return movieImages
+        }
+        return nil
+    }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchDelegate : NSObjectProtocol {
+protocol SearchDelegate : class {
     func search(text:String)
     func clear()
 }
