@@ -29,6 +29,7 @@ class MoviesMainListViewModel  {
         return nil
     }
     
+    //isSearchFound returns true If movies with searched text exists and false otherwise 
     func isSearchFound() -> Bool {
         if (searchedMovieList.movies.isEmpty) {
             return false

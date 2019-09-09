@@ -51,6 +51,8 @@ class MoviesMainListViewController: UIViewController {
 // MARK: Table view
 extension MoviesMainListViewController : UITableViewDataSource, UITableViewDelegate {
     
+    //In each tableview function If moviesDic is not empty this means that the user searched for data otherwise data is retrieved from normal movieList, sortedMoviesDicKeys is used to return the dictionary sorted
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(!moviesDic.isEmpty) {
             if let count = moviesDic[sortedMoviesDicKeys[section]]?.count {
@@ -130,6 +132,7 @@ extension MoviesMainListViewController : UITableViewDataSource, UITableViewDeleg
 
 extension MoviesMainListViewController : SearchDelegate {
     
+    //Search function sets moviesDic with key year of movie,  and value of top most 5 movies issued in this year if exists
     func search(text: String) {
         moviesDic = viewModel.sortAndCategorizeMovies(text:text)
         sortedMoviesDicKeys = viewModel.sortDictionaryKeys(moviesDictionary: moviesDic)
