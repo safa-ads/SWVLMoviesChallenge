@@ -35,7 +35,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndF-6m-KDe" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="16" y="47" width="310" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
                                         <color key="value" red="1" green="0.78823529411764703" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,7 +46,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tVQ-4U-RcT" firstAttribute="leading" secondItem="TAc-Zb-ohR" secondAttribute="leading" constant="16" id="AkG-Pd-zMZ"/>
                             <constraint firstItem="tVQ-4U-RcT" firstAttribute="top" secondItem="TAc-Zb-ohR" secondAttribute="top" constant="16" id="MuW-1S-2L9"/>
@@ -64,7 +64,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="TAc-Zb-ohR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="2sq-nK-eD7"/>
                     <constraint firstItem="TAc-Zb-ohR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="C6z-GX-EWY"/>
@@ -78,7 +78,7 @@
                 <outlet property="ratingView" destination="ndF-6m-KDe" id="qvu-9i-yya"/>
                 <outlet property="titleLabel" destination="tVQ-4U-RcT" id="tWl-9w-fQo"/>
             </connections>
-            <point key="canvasLocation" x="62.318840579710148" y="151.67410714285714"/>
+            <point key="canvasLocation" x="57" y="94"/>
         </tableViewCell>
     </objects>
 </document>

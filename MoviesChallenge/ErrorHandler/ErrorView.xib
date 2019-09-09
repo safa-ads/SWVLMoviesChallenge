@@ -81,7 +81,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.2734375" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="D4L-c9-f8R" firstAttribute="leading" secondItem="awY-nH-K22" secondAttribute="leading" constant="16" id="29O-yd-Aan"/>
                 <constraint firstItem="D4L-c9-f8R" firstAttribute="centerY" secondItem="awY-nH-K22" secondAttribute="centerY" id="4zv-ma-WVO"/>
@@ -89,7 +89,7 @@
                 <constraint firstAttribute="trailing" secondItem="D4L-c9-f8R" secondAttribute="trailing" constant="16" id="HNU-gp-Abi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Ch1-vU-7Xv"/>
-            <point key="canvasLocation" x="125" y="124"/>
+            <point key="canvasLocation" x="256.52173913043481" y="-95.380434782608702"/>
         </view>
     </objects>
     <resources>

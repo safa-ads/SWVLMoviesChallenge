@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies Main List View Controller-->
+        <!--Movies-->
         <scene sceneID="onJ-tQ-JTL">
             <objects>
                 <viewController id="q42-Xz-Ddj" customClass="MoviesMainListViewController" customModule="MoviesChallenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,14 +27,14 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FQp-fj-KFC">
                                 <rect key="frame" x="0.0" y="148" width="414" height="588"/>
-                                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-J6-O22" customClass="NoResultView" customModule="MoviesChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="148" width="414" height="588"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bPS-J6-O22" firstAttribute="leading" secondItem="FQp-fj-KFC" secondAttribute="leading" id="5zp-xJ-Tr0"/>
                             <constraint firstItem="dsB-Hc-cHq" firstAttribute="bottom" secondItem="FQp-fj-KFC" secondAttribute="bottom" id="HwT-a0-lEh"/>
@@ -50,7 +50,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dsB-Hc-cHq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U87-V1-tqL"/>
+                    <navigationItem key="navigationItem" title="Movies" id="U87-V1-tqL"/>
                     <connections>
                         <outlet property="noResultView" destination="bPS-J6-O22" id="VVF-Ud-B4O"/>
                         <outlet property="searchView" destination="nCY-yn-DXa" id="WeE-RF-zHM"/>

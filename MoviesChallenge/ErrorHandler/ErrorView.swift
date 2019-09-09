@@ -34,13 +34,19 @@ class ErrorView: UIView {
     func setView() {
         Bundle.main.loadNibNamed("ErrorView", owner: self, options: nil)
         contentview.frame = self.frame
+        addSubview(contentview)
         contentview.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         setButtonView()
+        setLabelMessage()
     }
     
     func setButtonView() {
         okButton.backgroundColor = UIColor.TreePoppy
         okButton.addRoundedCorners(radius: buttonRadius)
+    }
+    
+    func setLabelMessage() {
+            errorMessageLabel.text = "Oops! Something went wrong! \n The application has encountered an unknown error."
     }
     
     func show() {

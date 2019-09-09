@@ -17,8 +17,8 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var collectionviewHeightConstraint: NSLayoutConstraint!
     
     let viewModel:MovieDetailsViewModel = MovieDetailsViewModel()
-    let padding:CGFloat = 20
-    let height:CGFloat = 200
+    let padding:CGFloat = 10
+    let height:CGFloat = 100
     var movie: Movies?
     var movieImages:[UIImage]?
     
@@ -27,37 +27,54 @@ class MovieDetailsViewController: UIViewController {
         bindData()
         setCollectionViewDelegates()
         getMovieImages()
-        setCollectionViewHeight()
     }
     
+    //// MARK: Data Binding
     func bindData() {
         if let movieDetails = movie {
             titleLabel.text = movieDetails.title
-            genreLabel.text = movieDetails.genres?.joined(separator: ", ")
-            castLabel.text = movieDetails.cast?.joined(separator: ", ")
+            if let genres = movieDetails.genres {
+                genreLabel.text = genres.joined(separator: ", ")
+            }
+            else {
+                genreLabel.text = "No genre specified"
+            }
+            
+            if let cast =  movieDetails.cast {
+                castLabel.text = "Cast: " + cast.joined(separator: ", ")
+            }
+            else {
+                castLabel.text = "No cast provided"
+            }
         }
     }
     
+    // MARK: Delegates
     func setCollectionViewDelegates() {
         collectionview.delegate = self
         collectionview.dataSource = self
     }
     
+    // MARK: set data
     func getMovieImages() {
         if let movieDetails = movie {
             viewModel.getMovieImages(movieTitle: movieDetails.title) { (images) in
                 self.movieImages = images
+                self.setCollectionViewHeight()
                 self.collectionview.reloadData()
             }
         }
     }
     
+    //Collection view height set to zero to hide collection view in case no images returned from flickr
     func setCollectionViewHeight() {
         if movieImages?.count == 0 {
-            collectionviewHeightConstraint.constant = 0
+            self.collectionviewHeightConstraint.constant = 0
         }
     }
 }
+
+// MARK: Collection view
 
 extension MovieDetailsViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -17,13 +17,17 @@ class SearchView: UIView {
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet var contentView: UIView!
-    let minSearchCount = 3
+    @IBOutlet weak var textHolderView: RoundedView!
+
     weak  var delegate: SearchDelegate?
+    
+    let minSearchCount = 3
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setView()
         setSearchText()
+        setRoundedViewUI()
     }
 
     func setView() {
@@ -35,6 +39,10 @@ class SearchView: UIView {
     
     func setSearchText() {
         searchTextField.delegate = self
+    }
+    
+    func setRoundedViewUI() {
+        textHolderView.borderColor = UIColor.AthensGray
     }
 }
 

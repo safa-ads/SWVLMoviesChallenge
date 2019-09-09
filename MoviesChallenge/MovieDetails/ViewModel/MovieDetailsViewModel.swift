@@ -14,14 +14,22 @@ class MovieDetailsViewModel {
     
     var movieImages: [UIImage] = []
     
+    //This function gets Image model then gets image in jpg format one by one from the model
+    
     func getMovieImages(movieTitle:String,completion: @escaping ([UIImage])->())  {
-        self.apiService.getImagesModel(movieTitle: movieTitle) { (MoviePhotos) in
-            for photo in MoviePhotos.photos.photo {
-                self.apiService.getImage(photo: photo, response: { (image) in
-                    self.movieImages.append(image)
-                    completion(self.movieImages)
-                })
+        self.apiService.getImagesModel(movieTitle: movieTitle) { (moviePhotos) in
+            if (moviePhotos.photos.photo.count == 0) {
+                completion(self.movieImages)
             }
+            else {
+                for photo in moviePhotos.photos.photo {
+                    self.apiService.getImage(photo: photo, response: { (image) in
+                        self.movieImages.append(image)
+                        completion(self.movieImages)
+                    })
+                }
+            }
+            
         }
     }
 }

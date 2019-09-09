@@ -39,21 +39,25 @@ class MoviesMainListViewModel  {
     }
     
     func sortAndCategorizeMovies(text:String) -> [Int : [Movies]] {
+        let _ = clear()
         searchForMovies(text:text)
         sortMovies()
         return categorizeByYear()
     }
     
+    //searchForMovies function checks if written text by user is in movie list
     func searchForMovies(text:String) {
         if let movies = movieList?.movies {
         searchedMovieList.movies.append(contentsOf: movies.filter{$0.title.lowercased().contains(text.lowercased())})
         }
     }
     
+    //Sort movies function sort the searched list based on each movie rate
     func sortMovies() {
         searchedMovieList.movies.sortByRate()
     }
     
+    //categorize by year function returns dictionary with year as a key and all movies of searched texted released in this year as value
     func categorizeByYear() -> [Int:[Movies]] {
         for movie in searchedMovieList.movies {
             if moviesDic[movie.year] == nil {
@@ -65,11 +69,12 @@ class MoviesMainListViewModel  {
         }
         return moviesDic
     }
-    
+    //Returns function that sorts dictionary keys to display them sorted
     func sortDictionaryKeys(moviesDictionary: [Int:[Movies]]) -> [Int] {
         return Array(moviesDictionary.keys.sorted())
     }
     
+    //function to reset search
     func clear() -> [Int : [Movies]] {
         searchedMovieList.movies = []
         moviesDic = [:]

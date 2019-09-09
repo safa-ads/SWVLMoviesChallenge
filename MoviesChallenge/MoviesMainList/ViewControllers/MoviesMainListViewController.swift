@@ -15,6 +15,7 @@ class MoviesMainListViewController: UIViewController {
     @IBOutlet weak var noResultView: NoResultView!
     
     let moviesMainListTableviewCellNibFileName = "MoviesMainListTableViewCell"
+    let customHeaderNibFileName = "SectionHeaderView"
     let viewModel:MoviesMainListViewModel = MoviesMainListViewModel()
     
     var movieList:MovieList?
@@ -28,6 +29,7 @@ class MoviesMainListViewController: UIViewController {
         setMoviesList()
     }
     
+    // MARK: Delegates
     func setSearchViewDelegate() {
         searchView.delegate = self
     }
@@ -36,14 +38,17 @@ class MoviesMainListViewController: UIViewController {
         self.tableview.dataSource = self
         self.tableview.delegate = self
         self.tableview.register(UINib(nibName: moviesMainListTableviewCellNibFileName, bundle: nil), forCellReuseIdentifier: MoviesMainListTableViewCell.cellIdentifier)
+          self.tableview.register(UINib(nibName: customHeaderNibFileName, bundle: nil), forCellReuseIdentifier: SectionHeaderView.identifier)
     }
     
+    // MARK: Set List
     func setMoviesList() {
         movieList = viewModel.getMovieList()
         tableview.reloadData()
     }
 }
 
+// MARK: Table view
 extension MoviesMainListViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,18 +110,23 @@ extension MoviesMainListViewController : UITableViewDataSource, UITableViewDeleg
         cell.selectionStyle = .none
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableCell(withIdentifier: SectionHeaderView.identifier) as! SectionHeaderView
         if(!moviesDic.isEmpty) {
-            let key = sortedMoviesDicKeys[section]
-            return "\(key)"
+            headerView.titleLabel.text = "\(sortedMoviesDicKeys[section])"
         }
         else {
-            return "All movies"
+           headerView.titleLabel.text = "All Movies"
         }
-        
+        return headerView
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
 }
+
+// MARK: Search extension
 
 extension MoviesMainListViewController : SearchDelegate {
     

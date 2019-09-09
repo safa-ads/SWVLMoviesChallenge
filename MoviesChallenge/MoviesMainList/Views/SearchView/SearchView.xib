@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="contentView" destination="51t-Z8-D2a" id="DK3-Gg-b6f"/>
                 <outlet property="searchTextField" destination="e90-Iw-end" id="nng-Ae-Zme"/>
+                <outlet property="textHolderView" destination="Yca-Pf-Vgy" id="41b-HM-5mx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -49,15 +50,15 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="radius">
-                            <real key="value" value="10"/>
+                            <real key="value" value="12.5"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="value" white="0.67000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Yca-Pf-Vgy" firstAttribute="top" secondItem="51t-Z8-D2a" secondAttribute="top" constant="8" id="QFa-hY-A4i"/>
                 <constraint firstAttribute="bottom" secondItem="Yca-Pf-Vgy" secondAttribute="bottom" constant="8" id="c0Z-G3-7rr"/>

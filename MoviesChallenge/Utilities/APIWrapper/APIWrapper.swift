@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 
 class APIWrapper {
-
+    
     func makeRequest(url:URL, method:HTTPMethod, parameters:Parameters, completion: @escaping (Data)->()) {
         Alamofire.request(url, method: method, parameters: parameters, encoding: URLEncoding.queryString, headers: nil).validate().responseData { (response) in
             if response.result.isSuccess {
@@ -24,6 +24,5 @@ class APIWrapper {
             }
         }
     }
-    
     
 }
